@@ -34,7 +34,7 @@
 
     //iniciando menu de opções
     while (1) { // loop infinito ate escolher sair
-        system("clear||cls");
+        
     
         switch(menu)
         {
@@ -45,6 +45,8 @@
                 printf("3. Sair\n");
                 printf("Escolha uma opção: ");
                 scanf("%d", &opcao1);
+                pausar_tela();
+                limpar_tela();
     
                 switch(opcao1)
                 {
@@ -76,6 +78,8 @@
                 printf("3. Sair\n");
                 printf("Escolha: ");
                 scanf("%d", &opcao2);
+                pausar_tela();
+                limpar_tela();
     
                 switch(opcao2)
                 {
@@ -84,51 +88,49 @@
                         break;
                     case 2:
                         // Cadastrar cartas
-                        pausar_tela();
-                        limpar_tela();
+                        
                         printf("=== Cadastro de Cartas ===\n");
                        
                         
-                        pausar_tela();
-                        limpar_tela();
+                        
                         printf("=== Cadastrando carta 1 ===\n");
+
                         printf("Digite o código da carta 1(a-z)(0)(1-4):");
                         fgets(codigo1, sizeof(codigo1), stdin); // Lê a string com espaços
                          
                         pausar_tela();
                         limpar_tela();
                         // Lê os dados da cidade 1
-                        printf("Digite o nome da cidade 1:");
+                        printf("Digite o nome da cidade da carta 1:");
 
                         
                         fgets(cidade1, sizeof(cidade1), stdin) ; // Lê a string com espaços
                            
                         // Lê o nome do estado 1
-                        pausar_tela();
+                        
                         limpar_tela();
-                        printf("Digite o nome do estado : ");
+                        printf("Digite o nome do estado da carta 1 : ");
                         
                         fgets(estado1, sizeof(estado1), stdin); // Lê a string com espaços
                         estado1[strcspn(estado1, "\n")] = 0; // Remove o caractere de nova linha
                         // Lê os dados da cidade 1
-                        pausar_tela();
+                        
                         limpar_tela();
 
                         
-                    printf("Digite a população da cidade 1 :");
+                        printf("Digite a população da cidade da carta 1 :");
                         
                         scanf("%d", &populacao1);
-                        pausar_tela();
-
+                        
                         limpar_tela();
-                    printf("Digite a área da cidade 1:");
+                        printf("Digite a área da cidade da carta 1:");
                         scanf("%f", &area1);
-                        pausar_tela();
+                        
                         limpar_tela();
-                        printf("Digite o PIB da cidade 1:");
+                        printf("Digite o PIB da cidade da carta 1:");
                         
                         scanf("%lf", &PIB1);
-                        pausar_tela();
+                       
                         limpar_tela();
                         // Calculando PIB per capita
                         PIB_percapita1 = PIB1 / populacao1;
@@ -139,42 +141,45 @@
 
                        
                         
-                        pausar_tela();
-                        limpar_tela(); 
                         
+                        limpar_tela(); 
+                        getchar(); // Limpa o buffer do teclado
                         printf("=== Cadastrando carta 2 ===\n");
                         printf("Digite o código da carta 2(a-z)(0)(1-4):");
                         fgets(codigo2, sizeof(codigo2), stdin); // Lê a string com espaços
 
-                        pausar_tela();
+                        
                         limpar_tela();
                         // Lê os dados da cidade 2
-                        printf("Digite o nome da cidade 2:");
+                        getchar(); // Limpa o buffer do teclado
+                        printf("Digite o nome da cidade da carta 2:");
                         
                         fgets(cidade2, sizeof(cidade2), stdin); // Lê a string com espaços
                        
                         // Lê o nome do estado 2
-                        pausar_tela();
+                       
                         limpar_tela();
-                        printf("Digite o nome do estado 2:");
+
+                        getchar(); // Limpa o buffer do teclado
+                        printf("Digite o nome do estado da carta 2:");
 
                      
                         fgets(estado2, sizeof(estado2), stdin); // Lê a string com espaços
                         
-                        pausar_tela();
+                        
                         limpar_tela();
-                        printf("Digite a população da cidade 2:");
+                        printf("Digite a população da cidade da carta 2:");
                         scanf("%d", &populacao2);
-                        pausar_tela();
+                        
                         limpar_tela();
                         // Lê a área da cidade 2
-                        printf("Digite a área da cidade 2:");
+                        printf("Digite a área da cidade da carta 2:");
                         scanf("%f", &area2);
-                        pausar_tela();
+                        
                         limpar_tela();
-                        printf("Digite o PIB da cidade 2:");
+                        printf("Digite o PIB da cidade da carta 2:");
                         scanf("%lf", &PIB2);
-                        pausar_tela();
+                        
                         limpar_tela();
                         
                         // Calculando PIB per capita
@@ -183,23 +188,42 @@
                         densidade2 = populacao2 / area2;
                         //calculando super poder
                         super_poder2 = PIB2 + populacao2 + area2 + PIB_percapita2 + densidade2;
-                        pausar_tela();
+                        
                         limpar_tela();
 
                       
-                       printf("=== Cartas cadastradas com sucesso! ===\n");
+                        printf("=== Cartas cadastradas com sucesso! ===\n");
 
 
-
-                        printf("Carta 1:%s\nCidade:%s\nEstado:%s\nPopulação:%d\nÁrea:%.2f\nPIB:%.2lf\nPIB per capita:%.2f\nDensidade:%.2f\nSuper Poder:%.2f\n" 
-                            ,codigo1, cidade1, estado1, populacao1, area1, PIB1, PIB_percapita1, densidade1, super_poder1);
-                        printf("Carta 2:%s\n  Cidade: %s\n  Estado: %s\n  População: %d\n  Área: %.2f\n  PIB: %.2lf\n  PIB per capita: %.2f\n  Densidade: %.2f\n  Super Poder: %.2f\n",
-                               codigo2, cidade2, estado2, populacao2, area2, PIB2, PIB_percapita2, densidade2, super_poder2);       
-                       
-                         pausar_tela();
-                         limpar_tela();
+                        
+                        limpar_tela();
 
 
+                             //Mostrando as cartas cadastradas
+                        printf("=== Cartas cadastradas ===\n");
+                        printf("Carta 1:%s\n",codigo1);
+                        printf("Cidade:%s\n",cidade1);
+                        printf("Estado:%s\n",estado1);
+                        printf("População:%d\n",populacao1);
+                        printf("Area:%.2f\n",area1);
+                        printf("PIB:%.2lf\n",PIB1);
+                        printf("PIB percapita:%.2f\n",PIB_percapita1);
+                        printf("Densidade Populacional:%.2f\n",densidade1);
+                        printf("Super Poder:%.2f\n", super_poder1);
+                        printf("Carta 2:%s\n",codigo2);
+                        printf("Cidade:%s\n",cidade2);
+                        printf("Estado:%s\n",estado2);
+                        printf("População:%d\n",populacao2);
+                        printf("Area:%.2f\n",area2);
+                        printf("PIB:%.2lf\n",PIB2);
+                        printf("PIB percapita:%.2f\n",PIB_percapita2);
+                        printf("Densidade Populacional:%.2f\n",densidade2);
+                        printf("Super Poder:%.2f\n", super_poder2);
+                        pausar_tela();
+                        limpar_tela(); 
+                           
+
+                              // Iniciando o jogo
                         printf("=== Jogo iniciado! ===\n");
                         printf("Escolha uma propriedade para comparar:\n");
                         printf("1. População\n");
@@ -210,13 +234,14 @@
                         printf("6. Super Poder\n");
                         printf("Escolha uma opção: ");
                         scanf("%d", &opcao3);
+                        // registrando resultado da primeira propriedade
                         switch(opcao3) {
                             case 1:
                             printf("Comparando População...\n");
-                             {resultado1 = populacao1 > populacao2 ? 1 : 0;
-                             }
+                             {resultado1 = populacao1 > populacao2 ? 1 : 0;}
                                 pausar_tela();
                                 limpar_tela();
+                                // registrando resultado da segunda propriedade
                                 printf("Digite a segunda propriedade para comparar:\n");
                                 printf("1. População\n");
                                 printf("2. Área\n");
@@ -226,17 +251,20 @@
                                 printf("6. Super Poder\n");
                                 printf("Escolha uma opção: ");
                                 scanf("%d", &opcao4);
+                                // Verifica se a opção escolhida é a mesma da primeira
                                 if(opcao4 == opcao3) {
                                     printf("Você escolheu a mesma propriedade novamente. Tente uma diferente.\n");
-                                    system("pause");
+                                    
                                     pausar_tela();
                                     limpar_tela();
                                     continue; // Volta para o início do loop
                                 }else{
-                                switch(opcao4) {
+                                    // Compara a segunda propriedade escolhida
+                                    switch(opcao4) {
                                     case 1:
                                         printf("Comparando População...\n");
                                         resultado2 = populacao1 > populacao2 ? 1 : 0;
+                                       
                                         pausar_tela();
                                         limpar_tela();
                                         break;
@@ -244,6 +272,7 @@
                                         printf("Comparando Área...\n");
                                         resultado2 = area1 > area2 ? 1 : 0;
 
+                                        // Exibe o resultado da comparação
                                 if(resultado1 == 1 && resultado2 == 1) {
                                   printf("Você venceu a rodada!\n");
                                   printf("Carta 1: %s\n População: %d\n Area: %f \n", cidade1, populacao1, area1);
@@ -265,27 +294,81 @@
                                     case 3: 
                                         printf("Comparando PIB...\n");
                                         resultado2 = PIB1 > PIB2 ? 1 : 0;
+
+                                      if (resultado1 == 1 && resultado2 == 1) {
+                                        printf("Você venceu a rodada!\n");
+                                        printf("Carta 1: %s\n População: %d PIB: %.2lf\n " ,cidade1 ,populacao1, PIB1);
+                                        printf("Carta 2: %s\n População: %d PIB: %.2lf\n ",cidade2, populacao2, PIB2);
+                                    } else if (resultado1 == 0 && resultado2 == 0) {
+                                        printf("Você perdeu a rodada!\n");
+                                        printf("Carta 1: %s\n População: %d PIB: %.2lf\n ",cidade1, populacao1, PIB1);
+                                        printf("Carta 2: %s\n População: %d PIB: %.2lf\n ",cidade2, populacao2, PIB2);
+                                    } else {
+                                        printf("A rodada terminou empatada!\n");
+                                        printf("Carta 1: %s\n População: %d PIB: %.2lf\n ",cidade1, populacao1, PIB1);
+                                        printf("Carta 2: %s\n População: %d PIB: %.2lf\n ",cidade2, populacao2, PIB2);
+                                    }
                                         pausar_tela();
                                         limpar_tela();
-                                        break;
+                                        continue;
                                     case 4:
                                         printf("Comparando PIB per capita...\n");
                                         resultado2 = PIB_percapita1 > PIB_percapita2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n População: %d PIB per capita: %.2f\n ",cidade1, populacao1, PIB_percapita1);
+                                            printf("Carta 2: %s\n População: %d PIB per capita: %.2f\n ",cidade2, populacao2, PIB_percapita2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n População: %d PIB per capita: %.2f\n ",cidade1, populacao1, PIB_percapita1);
+                                            printf("Carta 2: %s\n População: %d PIB per capita: %.2f\n ",cidade2, populacao2, PIB_percapita2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n População: %d PIB per capita: %.2f\n ",cidade1, populacao1, PIB_percapita1);
+                                            printf("Carta 2: %s\n População: %d PIB per capita: %.2f\n ",cidade2, populacao2, PIB_percapita2);
+                                        }
+
                                         pausar_tela();
                                         limpar_tela();
-                                        break;
+                                        continue;
                                     case 5:
                                         printf("Comparando Densidade populacional...\n");
                                         resultado2 = densidade1 < densidade2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n População: %d Densidade: %.2f\n ",cidade1, populacao1, densidade1);
+                                            printf("Carta 2: %s\n População: %d Densidade: %.2f\n ",cidade2, populacao2, densidade2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n População: %d Densidade: %.2f\n ",cidade1, populacao1, densidade1);
+                                            printf("Carta 2: %s\n População: %d Densidade: %.2f\n ",cidade2, populacao2, densidade2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n População: %d Densidade: %.2f\n ",cidade1, populacao1, densidade1);
+                                            printf("Carta 2: %s\n População: %d Densidade: %.2f\n ",cidade2, populacao2, densidade2);
+                                        }
                                         pausar_tela();
                                         limpar_tela();
-                                        break;
+                                        continue;
                                     case 6:
                                         printf("Comparando Super Poder...\n");
                                         resultado2 = super_poder1 > super_poder2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n População: %d Super Poder: %.2f\n ",cidade1, populacao1, super_poder1);
+                                            printf("Carta 2: %s\n População: %d Super Poder: %.2f\n ",cidade2, populacao2, super_poder2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n População: %d Super Poder: %.2f\n ",cidade1, populacao1, super_poder1);
+                                            printf("Carta 2: %s\n População: %d Super Poder: %.2f\n ",cidade2, populacao2, super_poder2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n População: %d Super Poder: %.2f\n ",cidade1, populacao1, super_poder1);
+                                            printf("Carta 2: %s\n População: %d Super Poder: %.2f\n ",cidade2, populacao2, super_poder2);
+                                        }
                                         pausar_tela();
                                         limpar_tela();
-                                        break;
+                                        continue;
                                     default:
                                         printf("Opção inválida!\n");
                                         system("pause");
@@ -294,15 +377,18 @@
                                         continue; // Volta para o início do loop
 
 
-                                }
-                             break;
+                                    }
+                                pausar_tela();
+                                limpar_tela();
+                                break;
                             case 2:
+                             
+
                             printf("Comparando Área...\n");
-                             {resultado1 = area1 > area2 ? 1 : 0;  
-                             }
-                             pausar_tela();
-                             limpar_tela();
-                               printf("Digite a segunda propriedade para comparar:\n");
+                             {resultado1 = area1 > area2 ? 1 : 0;  }
+                              pausar_tela();
+                              limpar_tela();
+                                printf("Digite a segunda propriedade para comparar:\n");
                                 printf("1. População\n");
                                 printf("2. Área\n");
                                 printf("3. PIB\n");
@@ -311,114 +397,138 @@
                                 printf("6. Super Poder\n");
                                 printf("Escolha uma opção: ");
                                 scanf("%d", &opcao4);
-                                if(opcao4 == opcao3) {
+                                 if(opcao4 == opcao3) {
                                     printf("Você escolheu a mesma propriedade novamente. Tente uma diferente.\n");
-                                    system("pause");
+                                    
                                     pausar_tela();
                                     limpar_tela();
                                     continue; // Volta para o início do loop
                                 }else{
-                                switch(opcao4) {
+                                    switch(opcao4) {
                                     case 1:
                                         printf("Comparando População...\n");
                                         resultado2 = populacao1 > populacao2 ? 1 : 0;
 
                                   if(resultado1 == 1 && resultado2 == 1) {
-                                  printf("Você venceu a rodada!\n");
+                                    printf("Você venceu a rodada!\n");
+                                    printf("Carta 1: %s\n População: %d Area: %f \n", cidade1, populacao1, area1);
+                                    printf("Carta 2: %s\n População: %d Area: %f \n", cidade2, populacao2, area2);
 
                                 } else if(resultado1 == 0 && resultado2 == 0) {
                                     printf("Você perdeu a rodada!\n");
+                                    printf("Carta 1: %s\n População: %d Area: %f\n ", cidade1, populacao1, area1);
+                                    printf("Carta 2: %s\n População: %d Area: %f \n", cidade2, populacao2, area2);
                                 } else {
                                     printf("A rodada terminou empatada!\n");
-                    } 
+                                    printf("Carta 1: %s\n População: %d Area: %f\n ", cidade1, populacao1, area1);
+                                    printf("Carta 2: %s\n População: %d Area: %f \n", cidade2, populacao2, area2);
+                                    } 
                                         pausar_tela();
                                         limpar_tela();
-                                        break;
+                                        continue;
                                     case 2:
                                         printf("Comparando Área...\n");
                                         resultado2 = area1 > area2 ? 1 : 0;
-                                        pausar_tela();
-                                        limpar_tela();
-
-                                    printf("Resultado da comparação:\n");
-                                    if(resultado1 == 1 && resultado2 == 1) {
-                                    printf("Você venceu a rodada!\n");
-
-                                }   else if(resultado1 == 0 && resultado2 == 0) {
-                                    printf("Você perdeu a rodada!\n");
-                                }   else {
-                                    printf("A rodada terminou empatada!\n");
-                    } 
+                                        
                                         pausar_tela();
                                         limpar_tela();
                                         break;
                                     case 3: 
                                         printf("Comparando PIB...\n");
                                         resultado2 = PIB1 > PIB2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n Area: %f PIB: %.2lf\n " ,cidade1 ,area1, PIB1);
+                                            printf("Carta 2: %s\n Area: %f PIB: %.2lf\n ",cidade2, area2, PIB2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n Area: %f PIB: %.2lf\n ",cidade1, area1, PIB1);
+                                            printf("Carta 2: %s\n Area: %f PIB: %.2lf\n ",cidade2, area2, PIB2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n Area: %f PIB: %.2lf\n ",cidade1, area1, PIB1);
+                                            printf("Carta 2: %s\n Area: %f PIB: %.2lf\n ",cidade2, area2, PIB2);
+                                        }
                                         pausar_tela();
                                         limpar_tela();
                                         break;
                                     case 4:
                                         printf("Comparando PIB per capita...\n");
                                         resultado2 = PIB_percapita1 > PIB_percapita2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n Area: %f PIB per capita: %.2f\n ",cidade1, area1, PIB_percapita1);
+                                            printf("Carta 2: %s\n Area: %f PIB per capita: %.2f\n ",cidade2, area2, PIB_percapita2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n Area: %f PIB per capita: %.2f\n ",cidade1, area1, PIB_percapita1);
+                                            printf("Carta 2: %s\n Area: %f PIB per capita: %.2f\n ",cidade2, area2, PIB_percapita2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n Area: %f PIB per capita: %.2f\n ",cidade1, area1, PIB_percapita1);
+                                            printf("Carta 2: %s\n Area: %f PIB per capita: %.2f\n ",cidade2, area2, PIB_percapita2);
+                                        }
                                         pausar_tela();
                                         limpar_tela();
-                                        break;
+                                        continue;
                                     case 5:
                                         printf("Comparando Densidade populacional...\n");
                                         resultado2 = densidade1 < densidade2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n Area: %f Densidade: %.2f\n ",cidade1, area1, densidade1);
+                                            printf("Carta 2: %s\n Area: %f Densidade: %.2f\n ",cidade2, area2, densidade2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n Area: %f Densidade: %.2f\n ",cidade1, area1, densidade1);
+                                            printf("Carta 2: %s\n Area: %f Densidade: %.2f\n ",cidade2, area2, densidade2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n Area: %f Densidade: %.2f\n ",cidade1, area1, densidade1);
+                                            printf("Carta 2: %s\n Area: %f Densidade: %.2f\n ",cidade2, area2, densidade2);
+                                        }
                                         pausar_tela();
                                         limpar_tela();
-                                        break;
+                                        continue;
                                     case 6:
                                         printf("Comparando Super Poder...\n");
                                         resultado2 = super_poder1 > super_poder2 ? 1 : 0;
+                                        if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n Area: %f Super Poder: %.2f\n ",cidade1, area1, super_poder1);
+                                            printf("Carta 2: %s\n Area: %f Super Poder: %.2f\n ",cidade2, area2, super_poder2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n Area: %f Super Poder: %.2f\n ",cidade1, area1, super_poder1);
+                                            printf("Carta 2: %s\n Area: %f Super Poder: %.2f\n ",cidade2, area2, super_poder2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n Area: %f Super Poder: %.2f\n ",cidade1, area1, super_poder1);
+                                            printf("Carta 2: %s\n Area: %f Super Poder: %.2f\n ",cidade2, area2, super_poder2);
+                                        }
                                         pausar_tela();
                                         limpar_tela();
-                                        break;
+                                        continue;
                                     default:
                                         printf("Opção inválida!\n");
-                                        system("pause");
+                                        
                                         pausar_tela();
                                         limpar_tela();
                                         continue; // Volta para o início do loop
 
-
                                 }
-                             break;
+
+                                
+                                
+                                } 
+
+                                pausar_tela();
+                                limpar_tela();
+                                continue;
                             case 3:
                             printf("Comparando PIB...\n");
-                             {resultado1 = PIB1 > PIB2 ? 1 : 0;
-                             }
-                                pausar_tela();
-                                limpar_tela();
-                             break;
-                            case 4:
-                            printf("Comparando PIB per capita...\n");
-                             {resultado1 = PIB_percapita1 > PIB_percapita2 ? 1 : 0;
-                             }
-                                pausar_tela();
-                                limpar_tela();
-                             break;
-                            case 5:
-                            printf("Comparando Densidade populacional...\n");
-                             {resultado1 = densidade1 < densidade2 ? 1 : 0;
-                             }
-                                pausar_tela();
-                                limpar_tela();
-                             break;
-                            case 6:
-                            printf("Comparando Super Poder...\n");
-                             {resultado1 = super_poder1 > super_poder2 ? 1 : 0;
-                             }
-                                pausar_tela();
-                                limpar_tela();
-                             break;     
-                            default:
-                                printf("Opção inválida!\n");
-                                system("pause");
-                                continue; // Volta para o início do loop
-                            }   
+                             {resultado1 = PIB1 > PIB2 ? 1 : 0;}
+                             
                                 printf("Digite a segunda propriedade para comparar:\n");
                                 printf("1. População\n");
                                 printf("2. Área\n");
@@ -430,7 +540,7 @@
                                 scanf("%d", &opcao4);
                                 if(opcao4 == opcao3) {
                                     printf("Você escolheu a mesma propriedade novamente. Tente uma diferente.\n");
-                                    system("pause");
+                                    
                                     pausar_tela();
                                     limpar_tela();
                                     continue; // Volta para o início do loop
@@ -439,84 +549,591 @@
                                     case 1:
                                         printf("Comparando População...\n");
                                         resultado2 = populacao1 > populacao2 ? 1 : 0;
-                                        pausar_tela();
-                                        limpar_tela();
-                                        break;
+                                          if(resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n População: %d PIB: %.2lf\n " ,cidade1 ,populacao1, PIB1);
+                                            printf("Carta 2: %s\n População: %d PIB: %.2lf\n ",cidade2, populacao2, PIB2);
+                                        } else if(resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n População: %d PIB: %.2lf\n ",cidade1, populacao1, PIB1);
+                                            printf("Carta 2: %s\n População: %d PIB: %.2lf\n ",cidade2, populacao2, PIB2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n População: %d PIB: %.2lf\n ",cidade1, populacao1, PIB1);
+                                            printf("Carta 2: %s\n População: %d PIB: %.2lf\n ",cidade2, populacao2, PIB2);
+                                        }   
+                                        
+                             
+                             
+                                pausar_tela();
+                                limpar_tela();
+                             continue;
                                     case 2:
                                         printf("Comparando Área...\n");
                                         resultado2 = area1 > area2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n PIB: %f Area: %f \n", cidade1, PIB1, area1);
+                                            printf("Carta 2: %s\n PIB: %f Area: %f \n", cidade2, PIB2, area2);
+                                        } else if(resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n PIB: %f Area: %f\n ", cidade1, PIB1, area1);
+                                            printf("Carta 2: %s\n PIB: %f Area: %f \n", cidade2, PIB2, area2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n PIB: %f Area: %f\n ", cidade1, PIB1, area1);
+                                            printf("Carta 2: %s\n PIB: %f Area: %f \n", cidade2, PIB2, area2);
+                                        } 
                                         pausar_tela();
                                         limpar_tela();
-                                        break;
-                                    case 3: 
+                                        continue;
+                                    case 3:
                                         printf("Comparando PIB...\n");
                                         resultado2 = PIB1 > PIB2 ? 1 : 0;
+                                        
                                         pausar_tela();
                                         limpar_tela();
                                         break;
                                     case 4:
                                         printf("Comparando PIB per capita...\n");
                                         resultado2 = PIB_percapita1 > PIB_percapita2 ? 1 : 0;
+                                        if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n PIB: %.2lf PIB per capita: %.2f\n ",cidade1, PIB1, PIB_percapita1);
+                                            printf("Carta 2: %s\n PIB: %.2lf PIB per capita: %.2f\n ",cidade2, PIB2, PIB_percapita2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n PIB: %.2lf PIB per capita: %.2f\n ",cidade1, PIB1, PIB_percapita1);
+                                            printf("Carta 2: %s\n PIB: %.2lf PIB per capita: %.2f\n ",cidade2, PIB2, PIB_percapita2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n PIB: %.2lf PIB per capita: %.2f\n ",cidade1, PIB1, PIB_percapita1);
+                                            printf("Carta 2: %s\n PIB: %.2lf PIB per capita: %.2f\n ",cidade2, PIB2, PIB_percapita2);
+                                        }
                                         pausar_tela();
                                         limpar_tela();
-                                        break;
+                                        continue;
                                     case 5:
                                         printf("Comparando Densidade populacional...\n");
                                         resultado2 = densidade1 < densidade2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n PIB: %.2lf Densidade: %.2f\n ",cidade1, PIB1, densidade1);
+                                            printf("Carta 2: %s\n PIB: %.2lf Densidade: %.2f\n ",cidade2, PIB2, densidade2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n PIB: %.2lf Densidade: %.2f\n ",cidade1, PIB1, densidade1);
+                                            printf("Carta 2: %s\n PIB: %.2lf Densidade: %.2f\n ",cidade2, PIB2, densidade2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n PIB: %.2lf Densidade: %.2f\n ",cidade1, PIB1, densidade1);
+                                            printf("Carta 2: %s\n PIB: %.2lf Densidade: %.2f\n ",cidade2, PIB2, densidade2);
+                                        }
                                         pausar_tela();
                                         limpar_tela();
-                                        break;
+                                        continue;
                                     case 6:
                                         printf("Comparando Super Poder...\n");
                                         resultado2 = super_poder1 > super_poder2 ? 1 : 0;
+                                        if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n PIB: %.2lf Super Poder: %.2f\n ",cidade1, PIB1, super_poder1);
+                                            printf("Carta 2: %s\n PIB: %.2lf Super Poder: %.2f\n ",cidade2, PIB2, super_poder2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n PIB: %.2lf Super Poder: %.2f\n ",cidade1, PIB1, super_poder1);
+                                            printf("Carta 2: %s\n PIB: %.2lf Super Poder: %.2f\n ",cidade2, PIB2, super_poder2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n PIB: %.2lf Super Poder: %.2f\n ",cidade1, PIB1, super_poder1);
+                                            printf("Carta 2: %s\n PIB: %.2lf Super Poder: %.2f\n ",cidade2, PIB2, super_poder2);
+                                        }
                                         pausar_tela();
                                         limpar_tela();
-                                        break;
+                                        continue;
                                     default:
                                         printf("Opção inválida!\n");
                                         system("pause");
                                         pausar_tela();
                                         limpar_tela();
                                         continue; // Volta para o início do loop
-
+                                    }
+                                    }
+                            case 4:
+                            printf("Comparando PIB per capita...\n");
+                             {resultado1 = PIB_percapita1 > PIB_percapita2 ? 1 : 0;}
+                             
+                                printf("Digite a segunda propriedade para comparar:\n");
+                                printf("1. População\n");
+                                printf("2. Área\n");
+                                printf("3. PIB\n");
+                                printf("4. PIB per capita\n");
+                                printf("5. Densidade populacional\n");
+                                printf("6. Super Poder\n");
+                                printf("Escolha uma opção: ");
+                                scanf("%d", &opcao4);
+                                 if(opcao4 == opcao3) {
+                                    printf("Você escolheu a mesma propriedade novamente. Tente uma diferente.\n");
+                                    
+                                    pausar_tela();
+                                    limpar_tela();
+                                    continue; // Volta para o início do loop
+                                }else{
+                                    switch(opcao4) {
+                                    case 1:
+                                        printf("Comparando População...\n");
+                                        resultado2 = populacao1 > populacao2 ? 1 : 0;
+                                          if(resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n População: %d PIB per capita: %.2f\n " ,cidade1 ,populacao1, PIB_percapita1);
+                                            printf("Carta 2: %s\n População: %d PIB per capita: %.2f\n ",cidade2, populacao2, PIB_percapita2);
+                                        } else if(resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n População: %d PIB per capita: %.2f\n ",cidade1, populacao1, PIB_percapita1);
+                                            printf("Carta 2: %s\n População: %d PIB per capita: %.2f\n ",cidade2, populacao2, PIB_percapita2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n População: %d PIB per capita: %.2f\n ",cidade1, populacao1, PIB_percapita1);
+                                            printf("Carta 2: %s\n População: %d PIB per capita: %.2f\n ",cidade2, populacao2, PIB_percapita2);
+                                        }
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue;
+                                        case 2:
+                                        printf("Comparando Área...\n");
+                                        resultado2 = area1 > area2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n PIB per capita: %.2f Area: %f \n", cidade1, PIB_percapita1, area1);
+                                            printf("Carta 2: %s\n PIB per capita: %.2f Area: %f \n", cidade2, PIB_percapita2, area2);
+                                        } else if(resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n PIB per capita: %.2f Area: %f\n ", cidade1, PIB_percapita1, area1);
+                                            printf("Carta 2: %s\n PIB per capita: %.2f Area: %f \n", cidade2, PIB_percapita2, area2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n PIB per capita: %.2f Area: %f\n ", cidade1, PIB_percapita1, area1);
+                                            printf("Carta 2: %s\n PIB per capita: %.2f Area: %f \n", cidade2, PIB_percapita2, area2);
+                                        }
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue;
+                                        case 3:
+                                        printf("Comparando PIB...\n");
+                                        resultado2 = PIB1 > PIB2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n PIB per capita: %.2f PIB: %.2lf\n " ,cidade1 ,PIB_percapita1, PIB1);
+                                            printf("Carta 2: %s\n PIB per capita: %.2f PIB: %.2lf\n ",cidade2, PIB_percapita2, PIB2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n PIB per capita: %.2f PIB: %.2lf\n ",cidade1, PIB_percapita1, PIB1);
+                                            printf("Carta 2: %s\n PIB per capita: %.2f PIB: %.2lf\n ",cidade2, PIB_percapita2, PIB2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n PIB per capita: %.2f PIB: %.2lf\n ",cidade1, PIB_percapita1, PIB1);
+                                            printf("Carta 2: %s\n PIB per capita: %.2f PIB: %.2lf\n ",cidade2, PIB_percapita2, PIB2);
+                                        }
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue;
+                                        case 4:
+                                        printf("Comparando PIB per capita...\n");
+                                        resultado2 = PIB_percapita1 > PIB_percapita2 ? 1 : 0;
+                                        case 5:
+                                        printf("Comparando Densidade populacional...\n");
+                                        resultado2 = densidade1 < densidade2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n PIB per capita: %.2f Densidade: %.2f\n ",cidade1, PIB_percapita1, densidade1);
+                                            printf("Carta 2: %s\n PIB per capita: %.2f Densidade: %.2f\n ",cidade2, PIB_percapita2, densidade2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n PIB per capita: %.2f Densidade: %.2f\n ",cidade1, PIB_percapita1, densidade1);
+                                            printf("Carta 2: %s\n PIB per capita: %.2f Densidade: %.2f\n ",cidade2, PIB_percapita2, densidade2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n PIB per capita: %.2f Densidade: %.2f\n ",cidade1, PIB_percapita1, densidade1);
+                                            printf("Carta 2: %s\n PIB per capita: %.2f Densidade: %.2f\n ",cidade2, PIB_percapita2, densidade2);
+                                        }
+                                        case 6:
+                                        printf("Comparando Super Poder...\n");
+                                        resultado2 = super_poder1 > super_poder2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n PIB per capita: %.2f Super Poder: %.2f\n ",cidade1, PIB_percapita1, super_poder1);
+                                            printf("Carta 2: %s\n PIB per capita: %.2f Super Poder: %.2f\n ",cidade2, PIB_percapita2, super_poder2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n PIB per capita: %.2f Super Poder: %.2f\n ",cidade1, PIB_percapita1, super_poder1);
+                                            printf("Carta 2: %s\n PIB per capita: %.2f Super Poder: %.2f\n ",cidade2, PIB_percapita2, super_poder2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n PIB per capita: %.2f Super Poder: %.2f\n ",cidade1, PIB_percapita1, super_poder1);
+                                            printf("Carta 2: %s\n PIB per capita: %.2f Super Poder: %.2f\n ",cidade2, PIB_percapita2, super_poder2);
+                                        }
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue;
+                                    default:
+                                        printf("Opção inválida!\n");
+                                       
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue; // Volta para o início do loop
                                 }
+                            }
+                                    
+                                pausar_tela();
+                                limpar_tela();   
+                                break;        
+                                
+                             
+                            case 5:
+                            printf("Comparando Densidade populacional...\n");
+                             {resultado1 = densidade1 < densidade2 ? 1 : 0;}
+                             
+                                printf("Digite a segunda propriedade para comparar:\n");
+                                printf("1. População\n");
+                                printf("2. Área\n");
+                                printf("3. PIB\n");
+                                printf("4. PIB per capita\n");
+                                printf("5. Densidade populacional\n");
+                                printf("6. Super Poder\n");
+                                printf("Escolha uma opção: ");
+                                scanf("%d", &opcao4);
+                                if(opcao4 == opcao3) {
+                                    printf("Você escolheu a mesma propriedade novamente. Tente uma diferente.\n");
+                                    
+                                    pausar_tela();
+                                    limpar_tela();
+                                    continue; // Volta para o início do loop
+                                }else{
+                                    switch(opcao4) {
+                                    case 1:
+                                        printf("Comparando População...\n");
+                                        resultado2 = populacao1 > populacao2 ? 1 : 0;
+                                          if(resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n População: %d Densidade: %.2f\n " ,cidade1 ,populacao1, densidade1);
+                                            printf("Carta 2: %s\n População: %d Densidade: %.2f\n ",cidade2, populacao2, densidade2);
+                                        } else if(resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n População: %d Densidade: %.2f\n ",cidade1, populacao1, densidade1);
+                                            printf("Carta 2: %s\n População: %d Densidade: %.2f\n ",cidade2, populacao2, densidade2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n População: %d Densidade: %.2f\n ",cidade1, populacao1, densidade1);
+                                            printf("Carta 2: %s\n População: %d Densidade: %.2f\n ",cidade2, populacao2, densidade2);
+                                        }
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue;
+                                    case 2:
+                                        printf("Comparando Área...\n");
+                                        resultado2 = area1 > area2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n Densidade: %.2f Area: %f \n", cidade1, densidade1, area1);
+                                            printf("Carta 2: %s\n Densidade: %.2f Area: %f \n", cidade2, densidade2, area2);
+                                        } else if(resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n Densidade: %.2f Area: %f\n ", cidade1, densidade1, area1);
+                                            printf("Carta 2: %s\n Densidade: %.2f Area: %f \n", cidade2, densidade2, area2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n Densidade: %.2f Area: %f\n ", cidade1, densidade1, area1);
+                                            printf("Carta 2: %s\n Densidade: %.2f Area: %f \n", cidade2, densidade2, area2);
+                                        }   
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue;
+                                    case 3:
+                                        printf("Comparando PIB...\n");
+                                        resultado2 = PIB1 > PIB2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n Densidade: %.2f PIB: %.2lf\n " ,cidade1 ,densidade1, PIB1);
+                                            printf("Carta 2: %s\n Densidade: %.2f PIB: %.2lf\n ", cidade2, densidade2, PIB2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n Densidade: %.2f PIB: %.2lf\n ",cidade1, densidade1, PIB1);
+                                            printf("Carta 2: %s\n Densidade: %.2f PIB: %.2lf\n ", cidade2, densidade2, PIB2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n Densidade: %.2f PIB: %.2lf\n ",cidade1, densidade1, PIB1);
+                                            printf("Carta 2: %s\n Densidade: %.2f PIB: %.2lf\n ", cidade2, densidade2, PIB2);
+                                        }
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue;
+                                    case 4:
+                                        printf("Comparando PIB per capita...\n");
+                                        resultado2 = PIB_percapita1 > PIB_percapita2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n Densidade: %.2f PIB per capita: %.2f\n ",cidade1, densidade1, PIB_percapita1);
+                                            printf("Carta 2: %s\n Densidade: %.2f PIB per capita: %.2f\n ",cidade2, densidade2, PIB_percapita2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n Densidade: %.2f PIB per capita: %.2f\n ",cidade1, densidade1, PIB_percapita1);    
+                                            printf("Carta 2: %s\n Densidade: %.2f PIB per capita: %.2f\n ",cidade2, densidade2, PIB_percapita2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n Densidade: %.2f PIB per capita: %.2f\n ",cidade1, densidade1, PIB_percapita1);
+                                            printf("Carta 2: %s\n Densidade: %.2f PIB per capita: %.2f\n ",cidade2, densidade2, PIB_percapita2);
+                                        }
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue;
+                                    case 5:
+                                        printf("Comparando Densidade populacional...\n");
+                                        resultado2 = densidade1 < densidade2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n Densidade: %.2f Super Poder: %.2f\n ",cidade1, densidade1, super_poder1);
+                                            printf("Carta 2: %s\n Densidade: %.2f Super Poder: %.2f\n ",cidade2, densidade2, super_poder2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n Densidade: %.2f Super Poder: %.2f\n ",cidade1, densidade1, super_poder1);
+                                            printf("Carta 2: %s\n Densidade: %.2f Super Poder: %.2f\n ",cidade2, densidade2, super_poder2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n Densidade: %.2f Super Poder: %.2f\n ",cidade1, densidade1, super_poder1);
+                                            printf("Carta 2: %s\n Densidade: %.2f Super Poder: %.2f\n ",cidade2, densidade2, super_poder2);
+                                        }   
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue;
+                                    case 6:
+                                        printf("Comparando Super Poder...\n");
+                                        resultado2 = super_poder1 > super_poder2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n Densidade: %.2f Super Poder: %.2f\n ",cidade1, densidade1, super_poder1);
+                                            printf("Carta 2: %s\n Densidade: %.2f Super Poder: %.2f\n ",cidade2, densidade2, super_poder2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n Densidade: %.2f Super Poder: %.2f\n ",cidade1, densidade1, super_poder1); 
+                                            printf("Carta 2: %s\n Densidade: %.2f Super Poder: %.2f\n ",cidade2, densidade2, super_poder2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n Densidade: %.2f Super Poder: %.2f\n ",cidade1, densidade1, super_poder1);
+                                            printf("Carta 2: %s\n Densidade: %.2f Super Poder: %.2f\n ",cidade2, densidade2, super_poder2);
+                                        }   
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue;
+                                    default:
+                                        printf("Opção inválida!\n");
+                                        
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue; // Volta para o início do loop
                                 }
-                                if(resultado1 == 1 && resultado2 == 1) {
-                                    printf("Você venceu a rodada!\n");
-
-                                } else if(resultado1 == 0 && resultado2 == 0) {
-                                    printf("Você perdeu a rodada!\n");
-                                } else {
-                                    printf("A rodada terminou empatada!\n");
-                    } 
-                       } 
-                    }
-                        break;   
-                    case 3:
+                            
+                            }
+                            
+                                pausar_tela();
+                                limpar_tela();
+                             break;
+                                
+                            
+                            case 6:
+                            printf("Comparando Super Poder...\n");
+                             {resultado1 = super_poder1 > super_poder2 ? 1 : 0;}
+                             
+                                printf("Digite a segunda propriedade para comparar:\n");
+                                printf("1. População\n");
+                                printf("2. Área\n");
+                                printf("3. PIB\n");
+                                printf("4. PIB per capita\n");
+                                printf("5. Densidade populacional\n");
+                                printf("6. Super Poder\n");
+                                printf("Escolha uma opção: ");
+                                scanf("%d", &opcao4);
+                                 if(opcao4 == opcao3) {
+                                    printf("Você escolheu a mesma propriedade novamente. Tente uma diferente.\n");
+                                    
+                                    pausar_tela();
+                                    limpar_tela();
+                                    continue; // Volta para o início do loop
+                                }else{
+                                 switch(opcao4) {
+                                    case 1:
+                                        printf("Comparando População...\n");
+                                        resultado2 = populacao1 > populacao2 ? 1 : 0;
+                                          if(resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n População: %d Super Poder: %.2f\n " ,cidade1 ,populacao1, super_poder1);
+                                            printf("Carta 2: %s\n População: %d Super Poder: %.2f\n ",cidade2, populacao2, super_poder2);
+                                        } else if(resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n População: %d Super Poder: %.2f\n ",cidade1, populacao1, super_poder1);
+                                            printf("Carta 2: %s\n População: %d Super Poder: %.2f\n ",cidade2, populacao2, super_poder2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n População: %d Super Poder: %.2f\n ",cidade1, populacao1, super_poder1);
+                                            printf("Carta 2: %s\n População: %d Super Poder: %.2f\n ",cidade2, populacao2, super_poder2);
+                                        }
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue;
+                                    case 2:
+                                        printf("Comparando Área...\n");
+                                        resultado2 = area1 > area2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n Super Poder: %.2f Area: %f \n", cidade1, super_poder1, area1);
+                                            printf("Carta 2: %s\n Super Poder: %.2f Area: %f \n", cidade2, super_poder2, area2);
+                                        } else if(resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n Super Poder: %.2f Area: %f\n ", cidade1, super_poder1, area1);
+                                            printf("Carta 2: %s\n Super Poder: %.2f Area: %f \n", cidade2, super_poder2, area2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n Super Poder: %.2f Area: %f\n ", cidade1, super_poder1, area1);
+                                            printf("Carta 2: %s\n Super Poder: %.2f Area: %f \n", cidade2, super_poder2, area2);
+                                        }
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue;
+                                    case 3:
+                                        printf("Comparando PIB...\n");
+                                        resultado2 = PIB1 > PIB2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n Super Poder: %.2f PIB: %.2lf\n " ,cidade1 ,super_poder1, PIB1);
+                                            printf("Carta 2: %s\n Super Poder: %.2f PIB: %.2lf\n ", cidade2, super_poder2, PIB2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n Super Poder: %.2f PIB: %.2lf\n ",cidade1, super_poder1, PIB1);
+                                            printf("Carta 2: %s\n Super Poder: %.2f PIB: %.2lf\n ", cidade2, super_poder2, PIB2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n Super Poder: %.2f PIB: %.2lf\n ",cidade1, super_poder1, PIB1);
+                                            printf("Carta 2: %s\n Super Poder: %.2f PIB: %.2lf\n ", cidade2, super_poder2, PIB2);
+                                        }   
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue;
+                                    case 4:
+                                        printf("Comparando PIB per capita...\n");
+                                        resultado2 = PIB_percapita1 > PIB_percapita2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n Super Poder: %.2f PIB per capita: %.2f\n ",cidade1, super_poder1, PIB_percapita1);    
+                                            printf("Carta 2: %s\n Super Poder: %.2f PIB per capita: %.2f\n ",cidade2, super_poder2, PIB_percapita2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n Super Poder: %.2f PIB per capita: %.2f\n ",cidade1, super_poder1, PIB_percapita1);
+                                            printf("Carta 2: %s\n Super Poder: %.2f PIB per capita: %.2f\n ",cidade2, super_poder2, PIB_percapita2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n Super Poder: %.2f PIB per capita: %.2f\n ",cidade1, super_poder1, PIB_percapita1);
+                                            printf("Carta 2: %s\n Super Poder: %.2f PIB per capita: %.2f\n ",cidade2, super_poder2, PIB_percapita2);
+                                        }
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue;
+                                    case 5:
+                                        printf("Comparando Densidade populacional...\n");
+                                        resultado2 = densidade1 < densidade2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n Super Poder: %.2f Densidade: %.2f\n ",cidade1, super_poder1, densidade1);
+                                            printf("Carta 2: %s\n Super Poder: %.2f Densidade: %.2f\n ",cidade2, super_poder2, densidade2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n Super Poder: %.2f Densidade: %.2f\n ",cidade1, super_poder1, densidade1);
+                                            printf("Carta 2: %s\n Super Poder: %.2f Densidade: %.2f\n ",cidade2, super_poder2, densidade2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n Super Poder: %.2f Densidade: %.2f\n ",cidade1, super_poder1, densidade1);
+                                            printf("Carta 2: %s\n Super Poder: %.2f Densidade: %.2f\n ",cidade2, super_poder2, densidade2);
+                                        }
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue;
+                                    case 6:
+                                        printf("Comparando Super Poder...\n");
+                                        resultado2 = super_poder1 > super_poder2 ? 1 : 0;
+                                          if (resultado1 == 1 && resultado2 == 1) {
+                                            printf("Você venceu a rodada!\n");
+                                            printf("Carta 1: %s\n Super Poder: %.2f Super Poder: %.2f\n ",cidade1, super_poder1, super_poder1);
+                                            printf("Carta 2: %s\n Super Poder: %.2f Super Poder: %.2f\n ",cidade2, super_poder2, super_poder2);
+                                        } else if (resultado1 == 0 && resultado2 == 0) {
+                                            printf("Você perdeu a rodada!\n");
+                                            printf("Carta 1: %s\n Super Poder: %.2f Super Poder: %.2f\n ",cidade1, super_poder1, super_poder1);
+                                            printf("Carta 2: %s\n Super Poder: %.2f Super Poder: %.2f\n ",cidade2, super_poder2, super_poder2);
+                                        } else {
+                                            printf("A rodada terminou empatada!\n");
+                                            printf("Carta 1: %s\n Super Poder: %.2f Super Poder: %.2f\n ",cidade1, super_poder1, super_poder1);
+                                            printf("Carta 2: %s\n Super Poder: %.2f Super Poder: %.2f\n ",cidade2, super_poder2, super_poder2);
+                                        }
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue;
+                                    default:
+                                        printf("Opção inválida!\n");
+                                        
+                                        pausar_tela();
+                                        limpar_tela();
+                                        continue; // Volta para o início do loop
+                                }
+                                
+                                }
+                                
+                                pausar_tela();
+                                limpar_tela();
+                                break;     
+                            default:
+                                printf("Opção inválida!\n");
+                               
+                                continue; // Volta para o início do loop
+                            }  
+                        }
+                   case 3:
                         printf("Saindo...\n");
+                        pausar_tela();
+                        limpar_tela();
                         exit(0);
                     default:
                         printf("Opção inválida!\n");
                         pausar_tela();
                         limpar_tela();
-                        system("pause");
+                        continue; // Volta para o início do loop
+                    }
+                
+            
+              
+                                 
+                      
+                        break;   
+                    case 3:
+                        printf("Saindo...\n");
+                        pausar_tela();
+                        limpar_tela();
+                        exit(0);
+                    default:
+                        printf("Opção inválida!\n");
+                        pausar_tela();
+                        limpar_tela();
+                        
                         continue; // Volta para o início do loop
                             
-                            
-                        
+                     
+                                 
                        
-                }
-                break;
-            default:
-                printf("Opção inválida! Tente novamente.\n");
-                system("pause");
-                pausar_tela();
-                limpar_tela();
-                continue; // Volta para o início do loop
+                
+                
+
+             
+        }
         }
 
-       
-   }
+    
+   
 
    return 0;
 }
