@@ -46,7 +46,7 @@ int main() {
     }*/
 
     //contagem de elementos pares e impares
-    int even_count, odd_count;
+   /* int even_count, odd_count;
 
     for(int i=0; i<3; i++){
         for(int j=0; j<3; j++){
@@ -58,6 +58,39 @@ int main() {
         }
     }
     printf("Pares: %d\n", even_count);
-    printf("Impares: %d\n", odd_count);
+    printf("Impares: %d\n", odd_count);*/
+    //substituição condicional de elementos
+    /*for(int i=0; i<3; i++){
+        for(int j=0; j<3; j++){
+            if(Matriz[i][j] % 3 == 0){
+                Matriz[i][j] = -1;
+
+            }
+            printf("%d ", Matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+*/
+
+  //BUsca condicional de elementos
+    int found = 0;
+    int target = 5; // elemento a ser buscado
+    for(int i=0; i<3; i++){
+        for(int j=0; j<3; j++){
+            if(Matriz[i][j] == target){
+                found = 1;
+                break;
+            }
+        }
+        if(found){
+            break;
+        }
+    }
+    if(!found){
+        printf("Elemento %d nao encontrado na matriz.\n", target);
+    } else {
+        printf("Elemento %d encontrado na matriz.\n", target);
+    }
     return 0;
 }
